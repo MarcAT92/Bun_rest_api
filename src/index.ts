@@ -1,6 +1,10 @@
 import { Elysia } from "elysia";
+import { plugin } from "./plugin";
 
-const app = new Elysia().get("/", () => "Hello Bun Dev, I'm going to build a RESTFULL API").state({
+//APPLICATION
+const app = new Elysia().get("/", () => "Hello Bun Dev, I'm going to build a RESTFULL API")
+.use(plugin)
+.state({
   id: 1,
   email: 'email@gmail.com',
 })
@@ -31,6 +35,7 @@ const app = new Elysia().get("/", () => "Hello Bun Dev, I'm going to build a RES
   // })
   console.log(store)
   console.log(getDate())
+  console.log(store['plugin-version'])
 
   return {"tracks": [
       {
